@@ -29,14 +29,14 @@
   <script src="lib/wwise/wwise.js"></script>
   <script src="src/wwise-components.js" type="module"></script>
 
-  <title>FMOD + WebXR Test Scene</title>
-  <meta property="og:title" content="FMOD + WebXR Test Scene" />
+  <title>Wwise + WebXR Test Scene</title>
+  <meta property="og:title" content="Wwise + WebXR Test Scene" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@msub2official" />
   <meta name="twitter:creator" content="@msub2official" />
-  <meta property="og:url" content="https://www.msub2.com/demos/fmod_webxr" />
-  <meta name="description" content="A sample project integrating FMOD into a WebXR scene. " />
-  <meta property="og:description" content="A sample project integrating FMOD into a WebXR scene. " />
+  <meta property="og:url" content="https://www.msub2.com/demos/wwise-webxr-test" />
+  <meta name="description" content="A sample project integrating Wwise into a WebXR scene. " />
+  <meta property="og:description" content="A sample project integrating Wwise into a WebXR scene. " />
   <meta property="og:image" content="https://cdn.glitch.global/d29f98b4-ddd1-4589-8b66-e2446690e697/snapshot.png?v=1645201177438" />
   <link rel="stylesheet" href="style.css">
 </head>
@@ -78,7 +78,7 @@
       simple-navmesh-constraint="navmesh:.navmesh;fall:0.5;height:0;exclude:.navmesh-hole;"
       movement-controls="speed:0.15;camera:#head;"
       position="-1 0 1" rotation="0 45 0" origin-on-ar-start
-      fmod-listener
+      wwise-listener
       material="wireframe: true"
       radius=".2"
     >
@@ -168,7 +168,7 @@
         <a-sphere data-left="thumb-tip" radius="0.004" visible="false" physx-body="type: kinematic;"></a-sphere>
       </a-entity>
       <!--FMOD Demo-->
-      <a-entity wwise-event="path: /One-Shots/Footstep;" footstepper></a-entity>
+      <a-entity wwise-gameobject="name: Footstep" wwise-event="eventName: Footstep; listener: #head" footstepper></a-entity>
     </a-entity>
     
     <a-entity id="my-ar-objects" position="-6 0 1">
@@ -245,8 +245,8 @@
     <a-box id="glassSide" class="obstructor" position="-5.27 3 -9.66" rotation="0 40 0" scale="4.75 6 .1" material="visible: false"></a-box>
     <a-box id="glassFront" class="obstructor" position="-7.7 2.13 -13.68" rotation="-45 130.5 0" scale="9.3 6 .1" material="visible: false"></a-box>
     <!-- Wwise Demo-->
-    <a-sphere id="event1" wwise-event="path: /Loops/Desert Ambience; listener: #head; enableOcclusion: true; obstructors: .obstructor; autostart: true" position="6 4 -5"></a-sphere>
-    <a-sphere id="event2" wwise-event="path: /Loops/Desert Ambience; listener: #head; enableOcclusion: true; obstructors: .obstructor; autostart: true" position="-6 4 -16"></a-sphere>
+    <a-entity id="event1" wwise-gameobject="name: wind1" wwise-event="eventName: Ambience; autostart: true; enableOcclusion: true; obstructors: .obstructor; listener: #head" position="6 4 -5"></a-entity>
+    <a-entity id="event2" wwise-gameobject="name: wind2" wwise-event="eventName: Ambience; autostart: true; enableOcclusion: true; obstructors: .obstructor; listener: #head" position="-6 4 -16"></a-entity>
 	</a-scene>
 
 	<div id="dom-overlay">
