@@ -2,6 +2,7 @@
 
 This repository contains a simple integration of Wwise into a web-based 3D environment that's WebXR-enabled.
 The scene itself comes from Ada Rose Cannon's [aframe-xr-boilerplate](https://github.com/AdaRoseCannon/aframe-xr-boilerplate) project.
+It also makes use of the WASM bindings I wrote myself over at [wwise.js](https://github.com/msub2/wwise.js).
 
 ## Running Locally
 
